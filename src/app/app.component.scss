@@ -1,0 +1,97 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100dvh;
+  gap: 3rem;
+  padding: 6rem 0 2rem 0;
+  background: var(--surface);
+  & > h1 {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    padding: 0 6.5vw;
+    color: var(--on-surface);
+    & > img {
+      height: 1.6rem;
+      padding-bottom: 2px;
+    }
+  }
+  & > section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 100%;
+    flex: 1;
+    & > main {
+      display: flex;
+      gap: 1.5rem;
+      width: 100%;
+      overflow-x: auto;
+      padding: 0 6.5vw;
+      scroll-padding: 6.5vw;
+      scroll-snap-type: x mandatory;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      & > div {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        flex-shrink: 0;
+        width: clamp(16rem, 40%, 50rem);
+        height: 30rem;
+        background: var(--surface-1);
+        border-radius: 1.75rem;
+        padding: 1.5rem;
+        scroll-snap-align: start;
+        & > img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 1.75rem;
+        }
+        & > h2 {
+          z-index: 10;
+        }
+        & > p {
+          z-index: 10;
+        }
+        & > span {
+          position: absolute;
+          bottom: 1rem;
+          right: 1rem;
+          display: flex;
+          align-items: center;
+          width: fit-content;
+          padding: 0.375rem;
+          border-radius: 100rem;
+          background: var(--surface-1);
+          color: var(--on-surface);
+        }
+      }
+    }
+    & > div {
+      display: flex;
+      width: 100%;
+      gap: 1rem;
+      justify-content: flex-end;
+      padding: 0 6.5vw;
+      & > span {
+        bottom: 1rem;
+        right: 1rem;
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        padding: 0.375rem;
+        border-radius: 100rem;
+        background: var(--surface-1);
+        color: var(--on-surface);
+      }
+    }
+  }
+}
