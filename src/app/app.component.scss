@@ -59,6 +59,8 @@
         border-radius: 100rem;
         background: var(--surface-1);
         color: var(--on-surface);
+        cursor: pointer;
+        user-select: none;
       }
     }
   }
@@ -67,6 +69,9 @@
 @media screen and (min-width: 760px) {
   .app {
     padding: 7rem 0 0.5rem 0;
+    & > section > main {
+      gap: 2rem;
+    }
     & > h1 {
       font-size: 2.5rem;
       & > img {
@@ -79,6 +84,9 @@
 @media screen and (min-width: 860px) {
   .app {
     gap: 2rem;
+    & > section > main {
+      gap: 3.5rem;
+    }
     & > h1 {
       font-size: 3rem;
       & > img {

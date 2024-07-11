@@ -3,32 +3,32 @@
     <img src="/assets/img/uurban-logo.svg" alt="Uurban logo" />&#160;& Friends
   </h1>
   <section>
-    <main>
-      <!-- <div>
-        <img src="/assets/img/ph-1.png" alt="Photoshoot of UURBAN & Friends 01" />
-        <h2>U&F 01</h2>
-        <p>By Alice Puissant</p>
-        <span class="material-symbols-rounded"> download </span>
-      </div>
-      <div>
-        <img src="/assets/img/ph-2.png" alt="Photoshoot of UURBAN & Friends 01" />
-        <h2>U&F 01</h2>
-        <p>By Alice Puissant</p>
-        <span class="material-symbols-rounded"> download </span>
-      </div>
-      <div>
-        <img src="/assets/img/ph-3.png" alt="Photoshoot of UURBAN & Friends 01" />
-        <h2>U&F 01</h2>
-        <p>By Alice Puissant</p>
-        <span class="material-symbols-rounded"> download </span>
-      </div> -->
+    <main #slider (scroll)="checkScroll()">
       <app-card-photo src="/assets/img/ph-1.png"></app-card-photo>
-      <app-card-photo src="/assets/img/ph-2.png"></app-card-photo>
+      <app-card-photo id="hello1" src="/assets/img/ph-2.png"></app-card-photo>
+      <app-card-photo src="/assets/img/ph-3.png"></app-card-photo>
+      <app-card-photo src="/assets/img/ph-1.png"></app-card-photo>
+      <app-card-photo id="hello1" src="/assets/img/ph-2.png"></app-card-photo>
+      <app-card-photo src="/assets/img/ph-3.png"></app-card-photo>
+      <app-card-photo src="/assets/img/ph-1.png"></app-card-photo>
+      <app-card-photo id="hello1" src="/assets/img/ph-2.png"></app-card-photo>
       <app-card-photo src="/assets/img/ph-3.png"></app-card-photo>
     </main>
     <div>
-      <span class="material-symbols-rounded"> chevron_backward </span>
-      <span class="material-symbols-rounded"> chevron_forward </span>
+      <span
+        [style.opacity]="disabled === 'left' ? '0.4' : '1'"
+        class="material-symbols-rounded"
+        (click)="handleClick('backward')"
+      >
+        chevron_backward
+      </span>
+      <span
+        [style.opacity]="disabled === 'right' ? '0.4' : '1'"
+        class="material-symbols-rounded"
+        (click)="handleClick('forward')"
+      >
+        chevron_forward
+      </span>
     </div>
   </section>
 </div>
