@@ -12,6 +12,7 @@
   background: var(--surface-1);
   scale: 1;
   transition: scale 0.3s cubic-bezier(0, 0, 0.5, 1);
+  user-select: none;
   &::before {
     position: absolute;
     left: 0;
