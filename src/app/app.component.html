@@ -4,15 +4,7 @@
   </h1>
   <section>
     <main #slider (scroll)="checkScroll()">
-      <app-card-photo src="/assets/img/ph-1.png"></app-card-photo>
-      <app-card-photo id="hello1" src="/assets/img/ph-2.png"></app-card-photo>
-      <app-card-photo src="/assets/img/ph-3.png"></app-card-photo>
-      <app-card-photo src="/assets/img/ph-1.png"></app-card-photo>
-      <app-card-photo id="hello1" src="/assets/img/ph-2.png"></app-card-photo>
-      <app-card-photo src="/assets/img/ph-3.png"></app-card-photo>
-      <app-card-photo src="/assets/img/ph-1.png"></app-card-photo>
-      <app-card-photo id="hello1" src="/assets/img/ph-2.png"></app-card-photo>
-      <app-card-photo src="/assets/img/ph-3.png"></app-card-photo>
+      <app-card-photo *ngFor="let i of photos" [src]="i.src" [author]="i.author"></app-card-photo>
     </main>
     <div>
       <span

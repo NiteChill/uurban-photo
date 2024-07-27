@@ -9,4 +9,5 @@ import { Component, Input } from '@angular/core';
 })
 export class CardPhotoComponent {
   @Input() src: string = '';
+  @Input() author: string = '';
 }
