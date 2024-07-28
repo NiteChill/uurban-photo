@@ -1,13 +1,13 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CardPhotoComponent } from './components/card-photo/card-photo.component';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import data from '../assets/datas/photos.json';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardPhotoComponent, NgFor],
+  imports: [RouterOutlet, CardPhotoComponent, NgFor, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -15,27 +15,49 @@ export class AppComponent {
   title = 'myapp';
   disabled = 'left';
   photos = JSON.parse(JSON.stringify(data));
+  limit = 10;
 
   @ViewChild('slider') slider: ElementRef;
+  @ViewChild('cardPhoto') cardPhoto: ElementRef;
 
   checkScroll() {
-    this.disabled =
-      this.slider.nativeElement.scrollLeft === 0
-        ? 'left'
-        : this.slider.nativeElement.scrollWidth -
-            this.slider.nativeElement.offsetWidth -
-            this.slider.nativeElement.scrollLeft <
-          50
-        ? 'right'
-        : '';
+    if (this.slider.nativeElement.scrollLeft === 0) {
+      this.disabled = 'left';
+    } else if (
+      this.slider.nativeElement.scrollWidth -
+        this.slider.nativeElement.offsetWidth -
+        this.slider.nativeElement.scrollLeft <
+      50
+    ) {
+      if (this.limit < this.photos.length) {
+        this.loadMore();
+      } else {
+        this.disabled = 'right';
+      }
+    } else {
+      this.disabled = '';
+    }
   }
 
   handleClick(direction: String) {
+    const scrollValue =
+      (this.slider.nativeElement.scrollWidth - 0.13 * window.innerWidth) /
+      this.limit;
     this.slider.nativeElement.scrollTo({
       left:
         this.slider.nativeElement.scrollLeft +
-        (direction === 'forward' ? 300 : -300),
+        (direction === 'forward' ? scrollValue : -scrollValue),
       behavior: 'smooth',
     });
+  }
+
+  loadMore() {
+    this.disabled = '';
+    if (this.limit < this.photos.length) {
+      this.limit =
+        this.limit + 10 > this.photos.length
+          ? this.photos.length
+          : this.limit + 10;
+    }
   }
 }

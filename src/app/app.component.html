@@ -4,20 +4,30 @@
   </h1>
   <section>
     <main #slider (scroll)="checkScroll()">
-      <app-card-photo *ngFor="let i of photos" [src]="i.src" [author]="i.author"></app-card-photo>
+      <app-card-photo #cardPhoto *ngFor="let i of photos.slice(0, limit)" [src]="i.src" [author]="i.author" />
+      <button>
+        <span
+        class="material-symbols-rounded"
+        (click)="loadMore()"
+        *ngIf="photos.length > limit"
+      >
+        add
+      </span>
+      <p>Load more</p>
+    </button>
     </main>
     <div>
       <span
         [style.opacity]="disabled === 'left' ? '0.4' : '1'"
         class="material-symbols-rounded"
-        (click)="handleClick('backward')"
+        (click)="disabled !== 'left' && handleClick('backward')"
       >
         chevron_backward
       </span>
       <span
         [style.opacity]="disabled === 'right' ? '0.4' : '1'"
         class="material-symbols-rounded"
-        (click)="handleClick('forward')"
+        (click)="disabled !== 'right' && handleClick('forward')"
       >
         chevron_forward
       </span>

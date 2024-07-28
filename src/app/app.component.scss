@@ -33,6 +33,7 @@
     padding-bottom: 5rem;
     & > main {
       display: flex;
+      align-items: center;
       gap: 1.5rem;
       width: 100%;
       overflow-x: auto;
@@ -41,6 +42,31 @@
       scroll-snap-type: x mandatory;
       &::-webkit-scrollbar {
         display: none;
+      }
+      & > button {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: var(--on-surface);
+        background: none;
+        background: var(--surface-1);
+        outline: none;
+        border: none;
+        height: 100%;
+        padding: 0.675rem 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        text-wrap: nowrap;
+        gap: 0.25rem;
+        & > span {
+          color: var(--on-surface-variant);
+        }
+        & > p {
+          font-size: 1rem;
+          line-height: 1.5rem;
+          font-weight: 400;
+        }
       }
     }
     & > div {
