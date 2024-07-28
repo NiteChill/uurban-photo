@@ -1,12 +1,11 @@
-import { NgOptimizedImage } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-photo',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [],
   templateUrl: './card-photo.component.html',
-  styleUrl: './card-photo.component.scss'
+  styleUrl: './card-photo.component.scss',
 })
 export class CardPhotoComponent {
   @Input() src: string = '';

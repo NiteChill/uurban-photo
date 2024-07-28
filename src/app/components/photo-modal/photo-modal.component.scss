@@ -1,0 +1,30 @@
+:host {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: var(--surface-1);
+  overflow: hidden;
+  & > span {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.375rem;
+    border-radius: 100rem;
+    background: color-mix(in srgb, black 65%, transparent);
+    color: var(--on-surface);
+    cursor: pointer;
+    user-select: none;
+    opacity: 1;
+    transition: opacity 0.2s cubic-bezier(0, 0, 0.2, 1);
+  }
+  & > img {
+    width: 100vw;
+    height: 100dvh;
+    object-fit: contain;
+  }
+}

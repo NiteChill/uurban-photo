@@ -5,14 +5,16 @@ import { NgFor, NgIf } from '@angular/common';
 import data from '../assets/datas/photos.json';
 import { cardAnimation } from './cardAnimation';
 import { buttonAnimation } from './buttonAnimation';
+import { PhotoModalComponent } from './components/photo-modal/photo-modal.component';
+import { modalPhotoAnimation } from './modalPhotoAnimation';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardPhotoComponent, NgFor, NgIf],
+  imports: [RouterOutlet, CardPhotoComponent, NgFor, NgIf, PhotoModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  animations: [cardAnimation, buttonAnimation],
+  animations: [cardAnimation, buttonAnimation, modalPhotoAnimation],
 })
 export class AppComponent {
   title = 'myapp';
@@ -20,13 +22,17 @@ export class AppComponent {
   photos = JSON.parse(JSON.stringify(data));
   limit = 10;
   displayImg = -1;
+  modalPhoto = {
+    state: false,
+    photo: ''
+  };
 
   timer = setInterval(this.updateTimer.bind(this), 200);
 
   private updateTimer() {
     this.displayImg <= this.limit - 1
       ? this.displayImg++
-      : (clearInterval(this.timer), this.displayImg = this.photos.length);
+      : (clearInterval(this.timer), (this.displayImg = this.photos.length));
   }
 
   @ViewChild('slider') slider: ElementRef;
@@ -62,6 +68,11 @@ export class AppComponent {
       behavior: 'smooth',
     });
   }
+  
+  handleClickard(photo: string) {
+    this.modalPhoto.state = true;
+    this.modalPhoto.photo = photo;
+  }
 
   loadMore() {
     this.disabled = '';
@@ -73,8 +84,3 @@ export class AppComponent {
     }
   }
 }
-
-// animation = counter ++ every sec or so
-// counter = number of displayed card with ngif
-// animation when displayed so stair like animation cuz delay between each card
-// animation : https://angular.love/en/controlling-angular-animations-programmatically

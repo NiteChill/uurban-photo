@@ -10,7 +10,7 @@
   &::-webkit-scrollbar {
     width: 4px;
     &-thumb {
-      background: color-mix(in srgb, var(--surface-2) 65%, transparent);
+      background: color-mix(in srgb, var(--surface-3) 65%, transparent);
     }
   }
   & > h1 {
@@ -58,7 +58,7 @@
         width: fit-content;
         padding: 0.375rem;
         border-radius: 100rem;
-        background: var(--surface-1);
+        background: var(--surface-2);
         color: var(--on-surface);
         cursor: pointer;
         user-select: none;

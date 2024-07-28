@@ -13,6 +13,7 @@
   scale: 1;
   transition: scale 0.3s cubic-bezier(0, 0, 0.5, 1);
   user-select: none;
+  pointer-events: none;
   &::before {
     position: absolute;
     left: 0;
@@ -36,6 +37,7 @@
     width: 100%;
     object-fit: cover;
     border-radius: 1.75rem;
+    pointer-events: all;
   }
   & > h2 {
     z-index: 10;
@@ -46,7 +48,7 @@
     color: var(--on-surface);
   }
   & > a > span {
-    z-index: 10;
+    z-index: 100;
     position: absolute;
     bottom: 1rem;
     right: 1rem;
@@ -55,7 +57,7 @@
     width: fit-content;
     padding: 0.375rem;
     border-radius: 100rem;
-    background: var(--surface-1);
+    background: var(--surface-2);
     color: var(--on-surface);
     cursor: pointer;
     user-select: none;
