@@ -24,7 +24,7 @@
         class="material-symbols-rounded"
         (click)="disabled !== 'left' && handleClick('backward')"
         *ngIf="displayImg >= 1"
-        @cardAnimation
+        @buttonAnimation
       >
         chevron_backward
       </span>
@@ -33,7 +33,7 @@
         class="material-symbols-rounded"
         (click)="disabled !== 'right' && handleClick('forward')"
         *ngIf="displayImg >= 1"
-        @cardAnimation
+        @buttonAnimation
       >
         chevron_forward
       </span>

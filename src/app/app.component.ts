@@ -4,6 +4,7 @@ import { CardPhotoComponent } from './components/card-photo/card-photo.component
 import { NgFor, NgIf } from '@angular/common';
 import data from '../assets/datas/photos.json';
 import { cardAnimation } from './cardAnimation';
+import { buttonAnimation } from './buttonAnimation';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { cardAnimation } from './cardAnimation';
   imports: [RouterOutlet, CardPhotoComponent, NgFor, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  animations: [cardAnimation],
+  animations: [cardAnimation, buttonAnimation],
 })
 export class AppComponent {
   title = 'myapp';
