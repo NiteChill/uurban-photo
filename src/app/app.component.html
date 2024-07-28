@@ -4,7 +4,9 @@
   </h1>
   <section>
     <main #slider (scroll)="checkScroll()">
-      <app-card-photo #cardPhoto *ngFor="let i of photos.slice(0, limit)" [src]="i.src" [author]="i.author" />
+      <ng-container *ngFor="let i of photos.slice(0, limit); index as index">
+        <app-card-photo *ngIf="displayImg >= index" #cardPhoto [src]="i.src" [author]="i.author" @cardAnimation />
+      </ng-container>
       <button>
         <span
         class="material-symbols-rounded"
@@ -21,6 +23,8 @@
         [style.opacity]="disabled === 'left' ? '0.4' : '1'"
         class="material-symbols-rounded"
         (click)="disabled !== 'left' && handleClick('backward')"
+        *ngIf="displayImg >= 1"
+        @cardAnimation
       >
         chevron_backward
       </span>
@@ -28,6 +32,8 @@
         [style.opacity]="disabled === 'right' ? '0.4' : '1'"
         class="material-symbols-rounded"
         (click)="disabled !== 'right' && handleClick('forward')"
+        *ngIf="displayImg >= 1"
+        @cardAnimation
       >
         chevron_forward
       </span>

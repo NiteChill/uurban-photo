@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { CardPhotoComponent } from './components/card-photo/card-photo.component';
 import { NgFor, NgIf } from '@angular/common';
 import data from '../assets/datas/photos.json';
+import { cardAnimation } from './cardAnimation';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,22 @@ import data from '../assets/datas/photos.json';
   imports: [RouterOutlet, CardPhotoComponent, NgFor, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  animations: [cardAnimation],
 })
 export class AppComponent {
   title = 'myapp';
   disabled = 'left';
   photos = JSON.parse(JSON.stringify(data));
   limit = 10;
+  displayImg = -1;
+
+  timer = setInterval(this.updateTimer.bind(this), 200);
+
+  private updateTimer() {
+    this.displayImg <= this.limit - 1
+      ? this.displayImg++
+      : (clearInterval(this.timer), this.displayImg = this.photos.length);
+  }
 
   @ViewChild('slider') slider: ElementRef;
   @ViewChild('cardPhoto') cardPhoto: ElementRef;
@@ -61,3 +72,8 @@ export class AppComponent {
     }
   }
 }
+
+// animation = counter ++ every sec or so
+// counter = number of displayed card with ngif
+// animation when displayed so stair like animation cuz delay between each card
+// animation : https://angular.love/en/controlling-angular-animations-programmatically
