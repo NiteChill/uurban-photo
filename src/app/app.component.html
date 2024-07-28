@@ -7,16 +7,6 @@
       <ng-container *ngFor="let i of photos.slice(0, limit); index as index">
         <app-card-photo *ngIf="displayImg >= index" #cardPhoto [src]="i.src" [author]="i.author" @cardAnimation />
       </ng-container>
-      <button>
-        <span
-        class="material-symbols-rounded"
-        (click)="loadMore()"
-        *ngIf="photos.length > limit"
-      >
-        add
-      </span>
-      <p>Load more</p>
-    </button>
     </main>
     <div>
       <span
