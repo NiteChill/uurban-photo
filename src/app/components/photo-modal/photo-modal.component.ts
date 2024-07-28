@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PhotoModalComponent {
   @Input() imgPreview: string = '';
-  @Output() close = new EventEmitter<boolean>();
+  @Output() close = new EventEmitter();
 
   handleClick() {
     this.close.emit();

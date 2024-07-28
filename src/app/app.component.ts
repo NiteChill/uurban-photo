@@ -69,7 +69,7 @@ export class AppComponent {
     });
   }
   
-  handleClickard(photo: string) {
+  handleClickCard(photo: string) {
     this.modalPhoto.state = true;
     this.modalPhoto.photo = photo;
   }
