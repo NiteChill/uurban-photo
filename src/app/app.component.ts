@@ -20,7 +20,7 @@ export class AppComponent {
   title = 'myapp';
   disabled = 'left';
   photos = JSON.parse(JSON.stringify(data));
-  limit = 10;
+  limit = 20;
   displayImg = -1;
   modalPhoto = {
     state: false,

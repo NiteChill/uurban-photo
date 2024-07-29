@@ -5,7 +5,14 @@
   <section>
     <main #slider (scroll)="checkScroll()">
       <ng-container *ngFor="let i of photos.slice(0, limit); index as index">
-        <app-card-photo *ngIf="displayImg >= index && !i.disabled" #cardPhoto [src]="i.src" [author]="i.author" @cardAnimation (imageClick)="handleClickCard(i.src)" />
+        <app-card-photo
+          *ngIf="displayImg >= index && !i.disabled"
+          #cardPhoto
+          [src]="i.src"
+          [author]="i.author"
+          @cardAnimation
+          (imageClick)="handleClickCard(i.src)"
+        />
       </ng-container>
     </main>
     <div>
@@ -29,5 +36,10 @@
       </span>
     </div>
   </section>
-  <app-photo-modal *ngIf="modalPhoto.state" [imgPreview]="modalPhoto.photo" @modalPhotoAnimation (close)="this.modalPhoto.state = false"></app-photo-modal>
+  <app-photo-modal
+    *ngIf="modalPhoto.state"
+    [imgPreview]="modalPhoto.photo"
+    @modalPhotoAnimation
+    (close)="this.modalPhoto.state = false"
+  ></app-photo-modal>
 </div>
