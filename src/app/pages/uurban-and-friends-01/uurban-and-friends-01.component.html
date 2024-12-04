@@ -1,0 +1,43 @@
+<h1>
+  <img src="/assets/img/uurban-logo.svg" alt="Uurban logo" />&#160;& Friends #01
+</h1>
+<section>
+  <main #slider (scroll)="checkScroll()">
+    <ng-container *ngFor="let i of photos.slice(0, limit); index as index">
+      <app-card-photo
+        *ngIf="displayImg >= index && !i.disabled"
+        #cardPhoto
+        [src]="i.src"
+        [author]="i.author"
+        @cardAnimation
+        (imageClick)="handleClickCard(i.src)"
+      />
+    </ng-container>
+  </main>
+  <div>
+    <span
+      [style.opacity]="disabled === 'left' ? '0.4' : '1'"
+      class="material-symbols-rounded"
+      (click)="disabled !== 'left' && handleClick('backward')"
+      *ngIf="displayImg >= 1"
+      @buttonAnimation
+    >
+      chevron_backward
+    </span>
+    <span
+      [style.opacity]="disabled === 'right' ? '0.4' : '1'"
+      class="material-symbols-rounded"
+      (click)="disabled !== 'right' && handleClick('forward')"
+      *ngIf="displayImg >= 1"
+      @buttonAnimation
+    >
+      chevron_forward
+    </span>
+  </div>
+</section>
+<app-photo-modal
+  *ngIf="modalPhoto.state"
+  [imgPreview]="modalPhoto.photo"
+  @modalPhotoAnimation
+  (close)="this.modalPhoto.state = false"
+></app-photo-modal>

@@ -1,0 +1,99 @@
+:host {
+  display: contents;
+  & > h1 {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    padding: 0 6.5vw;
+    color: var(--on-surface);
+    & > img {
+      height: 1.6rem;
+      padding-bottom: 2px;
+    }
+  }
+  & > section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    flex: 1;
+    padding-bottom: 5rem;
+    & > main {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      width: 100%;
+      overflow-x: auto;
+      padding: 2rem 6.5vw;
+      scroll-padding: 6.5vw;
+      scroll-snap-type: x mandatory;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    & > div {
+      display: flex;
+      width: 100%;
+      gap: 1rem;
+      justify-content: flex-end;
+      padding: 0 6.5vw;
+      & > span {
+        bottom: 1rem;
+        right: 1rem;
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        padding: 0.375rem;
+        border-radius: 100rem;
+        background: var(--surface-2);
+        color: var(--on-surface);
+        cursor: pointer;
+        user-select: none;
+        opacity: 1;
+        transition: opacity 0.2s cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 760px) {
+  :host {
+    padding: 7rem 0 0.5rem 0;
+    & > section > main {
+      gap: 2rem;
+    }
+    & > h1 {
+      font-size: 2.5rem;
+      & > img {
+        height: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 860px) {
+  :host {
+    gap: 2rem;
+    & > section > main {
+      gap: 3.5rem;
+    }
+    & > h1 {
+      font-size: 3rem;
+      & > img {
+        height: 2.3rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :host {
+    gap: 3rem;
+    & > h1 {
+      font-size: 4rem;
+      & > img {
+        height: 3rem;
+      }
+    }
+  }
+}
