@@ -10,6 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class CardPhotoComponent {
   @Input() src: string = '';
   @Input() author: string = '';
+  @Input() label: string = 'U&F #01';
   @Output() imageClick = new EventEmitter();
 
   handleClick() {
